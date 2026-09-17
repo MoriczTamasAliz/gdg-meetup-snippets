@@ -1,0 +1,9 @@
+{
+  "id": "002-multi-currency",
+  "title": "Add currency to the Decimal money type",
+  "oracle": "tests",
+  "prompt": "Add currency support to ledger/money_v2.py. Money should carry a three-letter ISO currency code that defaults to \"EUR\"; arithmetic between two different currencies must raise ValueError; equality must take currency into account. Keep the existing test suite green.",
+  "held_out_tests": ["verify/test_currency.py"],
+  "regression_tests": ["tests"],
+  "timeout_seconds": 600
+}

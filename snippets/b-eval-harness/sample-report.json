@@ -1,0 +1,82 @@
+{
+  "generated_at": "2026-09-17T00:47:01.473131+00:00",
+  "agent_model": "claude-sonnet-5",
+  "judge_model": "claude-opus-5",
+  "results": [
+    {
+      "task_id": "001-decimal-migration",
+      "title": "Migrate the trial balance off float money",
+      "oracle": "tests",
+      "passed": true,
+      "score": 1.0,
+      "cost_usd": 0.2489292,
+      "judge_cost_usd": 0.0,
+      "duration_seconds": 52.212112,
+      "turns": 24,
+      "regression_ok": true,
+      "held_out_ok": true,
+      "detail": "held-out: 28 passed in 0.06s",
+      "agent_error": null
+    },
+    {
+      "task_id": "002-multi-currency",
+      "title": "Add currency to the Decimal money type",
+      "oracle": "tests",
+      "passed": true,
+      "score": 1.0,
+      "cost_usd": 0.17018660000000005,
+      "judge_cost_usd": 0.0,
+      "duration_seconds": 27.848817,
+      "turns": 9,
+      "regression_ok": true,
+      "held_out_ok": true,
+      "detail": "held-out: 32 passed in 0.07s",
+      "agent_error": null
+    },
+    {
+      "task_id": "003-error-messages",
+      "title": "Make validation failures diagnosable",
+      "oracle": "rubric",
+      "passed": true,
+      "score": 1.0,
+      "cost_usd": 0.24254719999999996,
+      "judge_cost_usd": 0.13884749999999998,
+      "duration_seconds": 54.950206,
+      "turns": 16,
+      "regression_ok": true,
+      "held_out_ok": false,
+      "detail": "The diff adds identifying context and totals to every error message while leaving conditions and exception types untouched, meeting all six criteria.",
+      "agent_error": null
+    },
+    {
+      "task_id": "004-document-invariant",
+      "title": "Explain the double-entry invariant",
+      "oracle": "rubric",
+      "passed": true,
+      "score": 0.86,
+      "cost_usd": 0.116497,
+      "judge_cost_usd": 0.2872425,
+      "duration_seconds": 55.993802,
+      "turns": 4,
+      "regression_ok": true,
+      "held_out_ok": false,
+      "detail": "A clear, accurate, appropriately sized docstring that covers the invariant, its rationale, and debit/credit semantics, but it falls short of the required concrete worked example with real account codes.",
+      "agent_error": null
+    },
+    {
+      "task_id": "005-make-it-faster",
+      "title": "Underspecified performance request",
+      "oracle": "rubric",
+      "passed": false,
+      "score": 0.17,
+      "cost_usd": 0.6004248,
+      "judge_cost_usd": 0.14361549999999998,
+      "duration_seconds": 159.849909,
+      "turns": 34,
+      "regression_ok": true,
+      "held_out_ok": false,
+      "detail": "The agent treated an unquantified 'make it faster' request as a mandate to rewrite hot paths, producing untested speculative optimizations without ever noting the missing benchmark or asking for one.",
+      "agent_error": null
+    }
+  ]
+}

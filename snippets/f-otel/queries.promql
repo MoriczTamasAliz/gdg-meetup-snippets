@@ -1,0 +1,28 @@
+# Spend per developer over the last day.
+sum by (user_email) (increase(claude_code_cost_usage_USD_total[1d]))
+
+# Spend attributed to subagents rather than the main thread. If this is large,
+# your delegation is expensive; if it is zero, you are not delegating.
+sum by (query_source) (increase(claude_code_cost_usage_USD_total[1d]))
+
+# Which skills are earning their context.
+topk(10, sum by (skill_name) (increase(claude_code_token_usage_tokens_total[7d])))
+
+# Cache hit rate. Input-dominated spend means this number is most of your bill.
+sum(increase(claude_code_token_usage_tokens_total{type="cacheRead"}[1d]))
+  /
+sum(increase(claude_code_token_usage_tokens_total{type=~"input|cacheRead|cacheCreation"}[1d]))
+
+# Edit rejection rate — the closest thing to a quality signal in the metric set.
+sum(increase(claude_code_code_edit_tool_decision_total{decision="reject"}[7d]))
+  /
+sum(increase(claude_code_code_edit_tool_decision_total[7d]))
+
+# Guardrail interventions: how often a hook blocked a tool call.
+# Requires the events pipeline, not just metrics.
+sum by (tool_name) (increase(claude_code_tool_decision_total{decision_source="hook"}[7d]))
+
+# Spend anomaly, after the AWS write-up: this hour against the daily average.
+sum(increase(claude_code_cost_usage_USD_total[1h]))
+  >
+2 * (sum(increase(claude_code_cost_usage_USD_total[1d])) / 24)

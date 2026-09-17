@@ -1,0 +1,9 @@
+{
+  "id": "004-document-invariant",
+  "title": "Explain the double-entry invariant",
+  "oracle": "rubric",
+  "prompt": "Write a module docstring for ledger/entry.py that explains the double-entry invariant the module enforces, aimed at a developer who has never worked on accounting software. Do not change any behaviour.",
+  "rubric": "rubric.md",
+  "regression_tests": ["tests"],
+  "timeout_seconds": 600
+}

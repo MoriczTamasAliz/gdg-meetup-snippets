@@ -1,0 +1,13 @@
+{
+  "id": "001-decimal-migration",
+  "title": "Migrate the trial balance off float money",
+  "oracle": "tests",
+  "prompt": "ledger/report.py still imports the legacy float-backed ledger.money, so reported balances drift under repeated addition. Migrate the reporting path to ledger.money_v2 so balances are exact. Note that ledger/entry.py sits between them and also imports the legacy module, so you will need to deal with that too. The existing test suite must stay green.",
+  "held_out_tests": [
+    "verify/test_precision.py"
+  ],
+  "regression_tests": [
+    "tests"
+  ],
+  "timeout_seconds": 600
+}

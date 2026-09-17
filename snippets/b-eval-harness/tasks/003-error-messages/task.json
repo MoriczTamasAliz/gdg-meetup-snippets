@@ -1,0 +1,9 @@
+{
+  "id": "003-error-messages",
+  "title": "Make validation failures diagnosable",
+  "oracle": "rubric",
+  "prompt": "The ValueError messages raised by ledger/entry.py do not say which transaction or posting failed, so a developer reading a stack trace in production cannot tell which record is bad. Improve them. Keep the existing test suite green.",
+  "rubric": "rubric.md",
+  "regression_tests": ["tests"],
+  "timeout_seconds": 600
+}

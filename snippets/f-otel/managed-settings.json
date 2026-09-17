@@ -1,0 +1,14 @@
+{
+  "_comment": "Deploy through managed settings so telemetry is not per-developer opt-in. Claude Code strips conflicting developer environment variables when these are set. modelPricing matters: without it every cost figure your team sees is list price and will not match a contracted bill.",
+  "env": {
+    "CLAUDE_CODE_ENABLE_TELEMETRY": "1",
+    "OTEL_METRICS_EXPORTER": "otlp",
+    "OTEL_LOGS_EXPORTER": "otlp",
+    "OTEL_EXPORTER_OTLP_PROTOCOL": "grpc",
+    "OTEL_EXPORTER_OTLP_ENDPOINT": "http://collector.internal:4317"
+  },
+  "modelPricing": {
+    "_comment": "Replace with the per-million-token rates from your contract.",
+    "multiplier": 1.0
+  }
+}
