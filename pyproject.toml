@@ -11,7 +11,7 @@ dependencies = []
 [project.optional-dependencies]
 # Only needed by snippets/j-context-scoping/measure.py, to count tokens exactly
 # rather than estimating them. Everything else works without it.
-tokens = ["anthropic==0.75.0"]
+tokens = ["anthropic==1.14.0"]
 
 [dependency-groups]
 dev = [
