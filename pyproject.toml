@@ -15,7 +15,7 @@ tokens = ["anthropic==0.75.0"]
 
 [dependency-groups]
 dev = [
-  "pytest==9.1.1",
+  "pytest==9.2.0",
   # PIN BEFORE PUBLISHING — see "Before this repo goes public" in README.md.
   # "ruff==<version>",
 ]
